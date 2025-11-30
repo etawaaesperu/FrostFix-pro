@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="JS/dashboard.js"></script>
+
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">Panel de Soporte Técnico</div>
+            <button id="hambtn" class="hambtn" aria-label="Menú">≡</button>
+            <nav class="nav">
+                <button class="nav-item" data-action="registrar">Registrar equipo</button>
+                <button class="nav-item" data-action="servicios">Ver servicios</button>
+                <button class="nav-item" data-action="historial">Historial de reparaciones</button>
+                <button class="nav-item" data-action="inventario">Inventario</button>
+                <button class="nav-item" data-action="clientes">Clientes</button>
+                <button class="nav-item" data-action="config">Configuración</button>
+            </nav>
+            <nav class="encuesta">
+                 <button class="form"><a href="encuesta.html">encuesta</a></button>
+            </nav>
+            <div class="sidebar-footer">
+            <button id="logout">Cerrar Sesión</button>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="content-header">
+                <h2 id="contentTitle">Bienvenido</h2>
+                <div class="user-info">Usuario: <span id="userName">admin</span></div>
+            </header>
+
+            <section id="panelArea" class="panel-area">
+                <div class="cards">
+                    <div class="card-sample">
+                        <h4>Equipos en reparación</h4>
+                        <p class="big">0</p>
+                    </div>
+                    <div class="card-sample">
+                        <h4>Tickets abiertos</h4>
+                        <p class="big">0</p>
+                    </div>
+                    <div class="card-sample">
+                        <h4>Entregas pendientes</h4>
+                        <p class="big">0</p>
+                    </div>
+                </div>
+
+                <h3>Lista de registros (ejemplo estático)</h3>
+                <table class="sample-table">
+                    <thead>
+                        <tr><th>ID</th><th>Cliente</th><th>Equipo</th><th>Estado</th><th>Fecha</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Juan Pérez</td>
+                            <td>Laptop HP</td>
+                            <td>En reparación</td>
+                            <td>2025-11-05</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Ana López</td>
+                            <td>Impresora Epson</td>
+                            <td>Pendiente</td>
+                            <td>2025-11-04</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+import { pool } from "../JS/connection.js";
+import { ok, error } from "../utils/response.js";
+
+export const listarClientes = async (req, res) => {
+    try {
+        const [rows] = await pool.query("SELECT * FROM Clientes");
+        return ok(res, rows);
+    } catch (err) { return error(res, err); }
+};
+
+export const crearCliente = async (req, res) => {
+    try {
+        const { nombre, apellido, telefono, direccion, correo } = req.body;
+
+        await pool.query(
+            "INSERT INTO Clientes (Nombre, Apellido, Telefono, Direccion, Correo) VALUES (?,?,?,?,?)",
+            [nombre, apellido, telefono, direccion, correo]
+        );
+
+        return ok(res, "Cliente creado");
+    } catch (err) { return error(res, err); }
+};
+
+export const editarCliente = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { nombre, apellido, telefono, direccion, correo } = req.body;
+
+        await pool.query(
+            "UPDATE Clientes SET Nombre=?, Apellido=?, Telefono=?, Direccion=?, Correo=? WHERE IdCliente=?",
+            [nombre, apellido, telefono, direccion, correo, id]
+        );
+
+        return ok(res, "Cliente actualizado");
+    } catch (err) { return error(res, err); }
+};
+
+export const eliminarCliente = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        await pool.query("DELETE FROM Clientes WHERE IdCliente=?", [id]);
+
+        return ok(res, "Cliente eliminado");
+    } catch (err) { return error(res, err); }
+};
+    
